@@ -1,1 +1,45 @@
-"Hello World"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Coding Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="scrolling-header">
+        <h1 id="dynamic-title">Welcome to My Portfolio</h1>
+    </header>
+
+    <main>
+        <section class="content-block">
+            <h2>About Me</h2>
+            <p>I know Python and Lua, and now I'm learning HTML!</p>
+        </section>
+        <section class="content-block">
+            <h2>Projects</h2>
+            <p>Scroll down more to see the title grow...</p>
+        </section>
+        <section class="content-block">
+            <h2>Contact</h2>
+            <p>You reached the bottom!</p>
+        </section>
+    </main>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const title = document.getElementById('dynamic-title');
+            
+            // Calculate how many pixels the user has scrolled down
+            let scrolled = window.scrollY;
+            
+            // Base size is 2rem. It adds 0.01rem for every pixel scrolled.
+            // Math.min caps the size so it doesn't get ridiculously huge.
+            let newSize = Math.min(2 + (scrolled * 0.01), 5); 
+            
+            title.style.fontSize = `${newSize}rem`;
+        });
+    </script>
+</body>
+</html>
